@@ -32,24 +32,39 @@
         <div class="right">
             <div class="top">
                 <div class="search">
-                    <input type="text" placeholder="Browse your favourite coffee here..">
-                    <button type="submit" id="search" alt="search">
+                    <input type="text" id="searchInput" placeholder="Browse your favourite coffee here..">
+                    <button id="search" alt="search">
                         <img src="images/search.png" class="searchImg" alt="searchImg">
                     </button>
                 </div>
-                <button class="orderStatus" id="orderStatus">
+                <button class="orderStatus">
                     <div class="orderImg">
                         <img src="images/Ellipse 1.png" class="back" alt="hoov">
                         <img src="images/orderVect.png" class="front" alt="orderVector">
                     </div>
                     <h3>ORDER STATUS</h3>
-                    <a id="orderCount"></a>
+                    <a id="orderCount">0</a>
                 </button>
             </div>
             <div class="drinks">
             
             </div>
         </div>
+        <section class="orderMenu close">
+            <div class="orderMenuPopup">
+                <div class="top">
+                    <h2>Order Status</h2>
+                    <button class="popupCancel">
+                        <p>HIDE</p>
+                        <img src="images/right.png">
+                    </button>
+                </div>
+                
+                <div class="totalCost">
+
+                </div>
+            </div>
+        </section>
     </main>
 
 </body>

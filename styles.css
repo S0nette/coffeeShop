@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Rosarivo:regular,italic);
 * {
     margin: 0;
     font-family: Rosarivo;
@@ -11,20 +12,45 @@
 body{
     background: rgba(246, 246, 246, 1);
 }
-.right{
+.right, .right2{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
+
+.right2 {
+    width:55%;
+    margin:0 15% 30px 30px;
+    gap:10px;
+}
+.right2 p {
+    font-size: 14px;
+}
+.right2 h3 {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+
+.order {
+    display: flex;
+    justify-content:flex-end;
+}
+
 .main {
     display: flex;
     margin: 30px 50px 30px 50px;
 }
-.top {
+.top, .top2{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+}
+
+.top2 {
+    margin:25px 30px 25px 35px;
 }
 
 .left {
@@ -63,8 +89,7 @@ body{
     display: none;
 }
 
-.active {
-    background-repeat: no-repeat;
+.active, .chosen {
     background-color: rgba(218, 198, 182, 1);
     border-radius: 20px;
     border: 1px solid black;
@@ -75,6 +100,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 80px;
+    gap: 5px
 }
 .active img {
     display: flex;
@@ -83,25 +109,39 @@ body{
 
 
 h3{
-    font-size:16px;
+    font-size:18px;
     color: rgba(72, 52, 49, 1);
     width: 400;
 }
 p{
-    font-size:20px;
+    font-size:18px;
 }
-.orderStatus{
+h2 {
+    font-size:20px;
+    width: 400;
+}
+h1 {
+    font-size:45px;
+}
+a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+
+.orderStatus, .popupCancel{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
     height: 60px;
     cursor: pointer;
     border: 0;
     background: none;
 }
 
-.orderImg{
+.orderImg {
     width: 60px;
     height: 60px;
     position: relative;
@@ -114,6 +154,7 @@ p{
     padding: 5px 10px 5px 10px;
     border-radius: 20px;
     color: white;
+    margin-left:10px;
 }
 
 .back{
@@ -143,7 +184,7 @@ p{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     flex-wrap: wrap;
     width: 100%;
 }
@@ -196,6 +237,7 @@ p{
     border: none;
     height: 100%;
     width: 25px;
+    cursor: pointer;
 }
 
 
@@ -206,7 +248,7 @@ p{
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 70%;
+    width: 68%;
 }
 
 .search input, .search button {
@@ -230,11 +272,6 @@ p{
     width: 20px;
 }
 
-.order {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
 .main {
     display: flex;
@@ -244,9 +281,123 @@ p{
 
 .coffeeImg {
     height: 100vh;
+    width: auto;
+    position:absolute;
+    top: 0;
+    left: 0;
+    display: none;
 }
 
+.shadow {
+    height: 77vh;
+    width: auto;
+    top: 17vh;
+    left: -10px;
+}
 
+.close {
+    display: none;
+}
 
+.open {
+    display: block;
+    position: fixed;   
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(196, 196, 196, 0.5) ;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+}
 
+.orderMenuPopup {
+    width: 350px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background:  rgba(244, 244, 244, 1);
+}
 
+.popupCancel img {
+    width: 20px;
+}
+
+.backTo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    gap:10px;
+}
+.backTo img{
+    width: 30px;
+}
+
+.totalCost {
+    border-top: 2px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 50px;
+    background-color: rgba(233, 233, 233, 1);
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+
+.noChosen {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    border: 1px rgba(255, 255, 255, 1);
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.2);
+}
+.chosen {   width: 80px;    }
+
+.short, .tall, .grand, .venti {
+    width: 80px;
+    height: 80px;
+}
+
+.short img {
+    height: 25px;
+}
+.tall img {
+    height: 30px;
+}
+.grand img {
+    height: 35px;
+}
+.venti img {
+    height: 40px;
+}
+.noActiveImg {
+    display: none;
+}
+
+.placeOrd {
+    background-color: rgba(205, 65, 38, 0.8);
+    width: 150px;
+    padding: 15px;
+    border: 0;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.placeOrd:hover {
+    background-color: rgb(202, 80, 55);
+}

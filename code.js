@@ -41,13 +41,26 @@ const americano = []
 const expresso = []
 const flatWhite = []
 
+const coffeTypes = [cappuccino, latte, americano, expresso, flatWhite]
+
 let order = []
 let ordCnt = order.length
 if(ordCnt!=0) {
     document.getElementById("orderCount").innerHTML = ordCnt;
 }
 
+let orderMenu = document.querySelector('.orderMenu')
+const orderStatus = document.querySelector('.orderStatus')
+orderStatus.addEventListener('click', () => {
+    orderMenu.classList.add('open')
+    orderMenu.classList.remove('close')
+})
 
+let popup_cancel = document.querySelector('.popupCancel')
+popup_cancel.addEventListener('click', () => {
+    orderMenu.classList.add('close')
+    orderMenu.classList.remove('open')
+})
 
 let s = ''
 const selCap = document.getElementById('cappuccino');
@@ -65,8 +78,14 @@ cappuccino.forEach(coffee => {
     coffeeBlock.className = 'drink';
     coffeeBlock.tabIndex = "0";
     coffeeBlock.innerHTML = `
-            <img src=${coffee.image}>
-            <p>${coffee.name}</p>`
+            <img src=${coffee.image}>`
+    const coffeeName = document.createElement('a');
+    coffeeName.href = "coffee.html"
+    coffeeName.innerHTML = `${coffee.name}`
+    coffeeName.addEventListener('click', () => {
+        coffeeLink(coffee.name)
+    })
+    console.log(coffeeName)
     const costBlock = document.createElement('div');
     costBlock.className = 'cost';
     costBlock.innerHTML = `
@@ -76,6 +95,7 @@ cappuccino.forEach(coffee => {
     addButton.className = 'addToOrder';
     addButton.addEventListener('click', () => addToOrder(cappuccino[id]));
     
+    coffeeBlock.appendChild(coffeeName);
     costBlock.appendChild(addButton);
     coffeeBlock.appendChild(costBlock);
     coffeeList.appendChild(coffeeBlock);
@@ -83,8 +103,10 @@ cappuccino.forEach(coffee => {
 });
 
 selCap.addEventListener('click', () => {
-    activeCof.classList.remove('active');
-    activeCof.classList.add('noActive');
+    if (activeCof!=0) {
+        activeCof.classList.remove('active');
+        activeCof.classList.add('noActive'); 
+    }
     selCap.classList.remove('noActive');
     selCap.classList.add('active');
     activeCof = selCap
@@ -92,8 +114,10 @@ selCap.addEventListener('click', () => {
 });
 
 selAm.addEventListener('click', () => {
-    activeCof.classList.remove('active');
-    activeCof.classList.add('noActive');
+    if (activeCof!=0) {
+        activeCof.classList.remove('active');
+        activeCof.classList.add('noActive'); 
+    }
     selAm.classList.remove('noActive'); 
     selAm.classList.add('active');
     activeCof = selAm
@@ -101,8 +125,10 @@ selAm.addEventListener('click', () => {
 });
 
 selExp.addEventListener('click', () => {
-    activeCof.classList.remove('active');
-    activeCof.classList.add('noActive');
+    if (activeCof!=0) {
+        activeCof.classList.remove('active');
+        activeCof.classList.add('noActive'); 
+    }
     selExp.classList.remove('noActive');
     selExp.classList.add('active');
     activeCof = selExp
@@ -110,8 +136,10 @@ selExp.addEventListener('click', () => {
 });
 
 selFW.addEventListener('click', () => {
-    activeCof.classList.remove('active');
-    activeCof.classList.add('noActive');
+    if (activeCof!=0) {
+        activeCof.classList.remove('active');
+        activeCof.classList.add('noActive'); 
+    }
     selFW.classList.remove('noActive');
     selFW.classList.add('active');
     activeCof = selFW
@@ -119,8 +147,10 @@ selFW.addEventListener('click', () => {
 });
 
 selLat.addEventListener('click', () => {
-    activeCof.classList.remove('active');
-    activeCof.classList.add('noActive');
+    if (activeCof!=0) {
+        activeCof.classList.remove('active');
+        activeCof.classList.add('noActive'); 
+    }
     selLat.classList.remove('noActive');
     selLat.classList.add('active');
     activeCof = selLat
@@ -161,9 +191,59 @@ const showCoffee = (filter) => {
     console.log(s)
 };
 
+const findCoffee = (filter) => {
+    coffeeList.innerHTML=``
+    coffeTypes.forEach(coffeeType => {
+        id=0
+        coffeeType.forEach(coffee => {
+            if (coffee.name.toLowerCase().includes(filter)) {
+                const coffeeBlock = document.createElement('div');
+                coffeeBlock.className = 'drink';
+                coffeeBlock.tabIndex = "0";
+                coffeeBlock.innerHTML = `
+                        <img src=${coffee.image}>
+                        <p>${coffee.name}</p>`
+                const costBlock = document.createElement('div');
+                costBlock.className = 'cost';
+                costBlock.innerHTML = `
+                        <p>₹${coffee.cost}</p>`
+                const addButton = document.createElement('button');
+                addButton.textContent = `+`
+                addButton.className = 'addToOrder';
+                addButton.addEventListener('click', () => addToOrder(coffeeType[id]));
+                
+                costBlock.appendChild(addButton);
+                coffeeBlock.appendChild(costBlock);
+                coffeeList.appendChild(coffeeBlock);
+            }
+            id+=1
+        })
+    });
+};
+
+
 const addToOrder = (coffee) => {
     order.push(coffee);
     ordCnt += 1;
-
     document.getElementById("orderCount").innerHTML = ordCnt;
 }
+
+
+
+let searchInp = document.getElementById("searchInput")
+let searchBtn = document.getElementById("search")
+searchBtn.addEventListener('click', () => {
+    let srch = searchInp.value.toLowerCase()
+    findCoffee(srch)
+    activeCof.classList.remove('active');
+    activeCof.classList.add('noActive');
+    activeCof = 0
+})
+
+
+function coffeeLink(coffee) {
+    document.location = "coffee.html"
+    document.getElementById("orderCount2").innerHTML = ordCnt;
+    document.getElementById("coffeeName0").innerHTML = coffee;
+}
+

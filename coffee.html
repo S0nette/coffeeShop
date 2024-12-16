@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee</title>
+    <link rel="icon" href="images/iconCoffe.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+    <main>
+        <img src="images/cupShadow.png" class="coffeeImg shadow">
+        <img src="images/coffeeCard.png" class="coffeeImg">
+        <div class="top2">
+            <a href="index.html" class="backTo">
+                <img src="images/back.png">
+                BACK TO MENU
+            </a>
+            <button class="orderStatus" id="orderStatus">
+                <div class="orderImg">
+                    <img src="images/Ellipse 1.png" class="back" alt="hoov">
+                    <img src="images/orderVect.png" class="front" alt="orderVector">
+                </div>
+                <h3>ORDER STATUS</h3>
+                <a id="orderCount2"></a>
+            </button>
+        </div>
+        
+        <div class="order">
+            <div class="right2">
+                <h1 id="coffeeName0">Cinnamon and Cocoa</h1>
+                <p>A single espresso shot poured into hot foamy milk, with the surface topped with mildly sweetened cocoa powder and drizzled with scrumptious caramel syrup.</p>
+                <h3>SIZE</h3>
+                <div class="options">
+                    <button class="chosen short">
+                        <img src="images/dark.png" class="activeImg">
+                        <img src="images/light.png" class="noActiveImg">
+                        SHORT
+                    </button>
+                    <button class="noChosen tall">
+                        <img src="images/dark.png" class="noActiveImg">
+                        <img src="images/light.png" class="activeImg">
+                        TALL
+                    </button>
+                    <button class="noChosen grand">
+                        <img src="images/dark.png" class="noActiveImg">
+                        <img src="images/light.png" class="activeImg">
+                        GRANDE
+                    </button>
+                    <button class="noChosen venti">
+                        <img src="images/dark.png" class="noActiveImg">
+                        <img src="images/light.png" class="activeImg">
+                        VENTI
+                    </button>
+                </div>
+                <h3>EXTRA</h3>
+                <div class="options">
+                    <button class="noChosen">SHUGAR</button>
+                    <button class="noChosen">MILK</button>
+                </div>
+                <h3>MILK TYPE</h3>
+                <div class="options">
+                    <button class="noChosen">OAT MILK</button>
+                    <button class="noChosen">SOY MILK</button>
+                    <button class="noChosen">ALMOND MILK</button>
+                </div>
+                <div class="coffeeCost">
+
+                </div>
+                <button class="placeOrd">PLACE ORDER</button>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="code.js"></script>
+</html>
