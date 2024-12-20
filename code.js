@@ -24,7 +24,7 @@ const cappuccino = [
     {
         "name":"Dalgona Macha",
         "image":"images/matcha.png",
-        "orderImage":"images/matchaOrd.png",
+        "orderImage":"images/mathcaOrd.png",
         "cost":"99",
         "count":"0"
     },
@@ -116,13 +116,49 @@ const orderStatus = document.querySelector('.orderStatus')
 orderStatus.addEventListener('click', () => {
     orderMenu.classList.add('open')
     orderMenu.classList.remove('close')
+    findTotalCost()
+    showOrder()
 })
-
 let popup_cancel = document.querySelector('.popupCancel')
 popup_cancel.addEventListener('click', () => {
     orderMenu.classList.add('close')
     orderMenu.classList.remove('open')
 })
+const findTotalCost = () => {
+    console.log(order)
+    let sub = 0
+    order.forEach(cof => {
+        sub += cof.cost*cof.count
+    })
+    let disc = (sub * 0.1).toFixed(2)
+    let total = sub - disc
+    document.getElementById('totalCost').innerHTML = `
+    <div class="findCost">
+        <p>Subtotal</p>
+        <p>₹${sub}</p>
+    </div>
+    <div class="findCost">
+        <p>Discount -10%</p>
+        <p>₹${disc}</p>
+    </div>
+    <div class="findCost">
+        <h3>Total</h3>
+        <h3>₹${total}</h3>     
+    </div>`
+}
+const showOrder = () => {
+    let totCost = document.getElementById('ordered')
+    totCost.innerHTML = '<h3>Ordered</h3>'
+    order.forEach(coffee => {
+        totCost.innerHTML += `
+        <div class="findCost">
+            <img src=${coffee.orderImage}>
+            <p>${coffee.name}  x${coffee.count}</p>
+        </div>`
+    })
+}
+
+
 
 
 //изменение визуала каталоге с типами кофе
@@ -288,6 +324,7 @@ searchBtn.addEventListener('click', () => {
     activeCof.classList.remove('active');
     activeCof.classList.add('noActive');
     activeCof = 0
+    activeCofBrg = 0
 })
 const findCoffee = (filter) => {
     coffeeList.innerHTML=``
@@ -319,4 +356,89 @@ const findCoffee = (filter) => {
     });
 };
 
+const menu = document.getElementById('menu')
+const BurgerMenu = () => {
+    menu.classList.remove('close')
+    menu.classList.add('openBrg')
+    if (activeCofBrg != 0) activeCofBrg.classList.add('activeBrg')
+}
+
+const selCapBrg = document.getElementById('capBrg');
+const selLatBrg = document.getElementById('latBrg');
+const selAmBrg = document.getElementById('amBrg');
+const selExpBrg = document.getElementById('expBrg');
+const selFWBrg = document.getElementById('fwBrg');
+const selCaoBrg = document.getElementById('caoBtg');
+const selMaBrg = document.getElementById('matchaBrg');
+let activeCofBrg = selCapBrg
+selCapBrg.addEventListener('click', () => {
+    if (activeCofBrg!=0) {
+        activeCofBrg.classList.remove('activeBrg');
+        activeCofBrg.classList.add('noActiveBrg'); 
+    }
+    activeCofBrg = selCapBrg
+    selCap.click()
+    menu.classList.add('close')
+    menu.classList.remove('openBrg')
+});
+selAmBrg.addEventListener('click', () => {
+    if (activeCofBrg!=0) {
+        activeCofBrg.classList.remove('activeBrg');
+        activeCofBrg.classList.add('noActiveBrg'); 
+    }
+    activeCofBrg = selAmBrg
+    selAm.click()
+    menu.classList.add('close')
+    menu.classList.remove('openBrg')
+});
+selExpBrg.addEventListener('click', () => {
+    if (activeCofBrg!=0) {
+        activeCofBrg.classList.remove('activeBrg');
+        activeCofBrg.classList.add('noActiveBrg'); 
+    }
+    activeCofBrg = selExpBrg
+    selExp.click()
+    menu.classList.add('close')
+    menu.classList.remove('openBrg')
+});
+selFWBrg.addEventListener('click', () => {
+    if (activeCofBrg!=0) {
+        activeCofBrg.classList.remove('activeBrg');
+        activeCofBrg.classList.add('noActiveBrg'); 
+    }
+    activeCofBrg = selFWBrg
+    selFW.click()
+    menu.classList.add('close')
+    menu.classList.remove('openBrg')
+});
+selLatBrg.addEventListener('click', () => {
+    if (activeCofBrg!=0) {
+        activeCofBrg.classList.remove('activeBrg');
+        activeCofBrg.classList.add('noActiveBrg'); 
+    }
+    activeCofBrg = selLatBrg
+    selLat.click()
+    menu.classList.add('close')
+    menu.classList.remove('openBrg')
+});
+selMaBrg.addEventListener('click', () => {
+    if (activeCofBrg!=0) {
+        activeCofBrg.classList.remove('activeBrg');
+        activeCofBrg.classList.add('noActiveBrg'); 
+    }
+    activeCofBrg = selMaBrg
+    selMa.click()
+    menu.classList.add('close')
+    menu.classList.remove('openBrg')
+});
+selCaoBrg.addEventListener('click', () => {
+    if (activeCofBrg!=0) {
+        activeCofBrg.classList.remove('activeBrg');
+        activeCofBrg.classList.add('noActiveBrg'); 
+    }
+    activeCofBrg = selCaoBrg
+    selCao.click()
+    menu.classList.add('close')
+    menu.classList.remove('openBrg')
+});
 

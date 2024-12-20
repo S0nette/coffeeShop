@@ -39,6 +39,18 @@
         </div>
         <div class="right">
             <div class="top">
+                <img src="images/MenuIcon.png" onclick="BurgerMenu()" class="burgerMenu">
+                <section class="menu close" id="menu">
+                    <div class="menuPopup" id="menuPopup">
+                        <button id="capBrg" class="noActiveBrg">Cappuccino</button>
+                        <button id="latBrg" class="noActiveBrg">Latte</button>
+                        <button id="amBrg" class="noActiveBrg">Americano</button>
+                        <button id="expBrg" class="noActiveBrg">Expresso</button>
+                        <button id="fwBrg" class="noActiveBrg">Flat White</button>
+                        <button id="caoBtg" class="noActiveBrg">Cacao</button>
+                        <button id="matchaBrg" class="noActiveBrg">Mathca</button>
+                    </div>
+                </section>
                 <div class="search">
                     <input type="text" id="searchInput" placeholder="Browse your favourite coffee here..">
                     <button id="search" alt="search">
@@ -60,16 +72,23 @@
         </div>
         <section class="orderMenu close">
             <div class="orderMenuPopup">
-                <div class="top">
+                <div class="top2">
                     <h2>Order Status</h2>
                     <button class="popupCancel">
                         <p>HIDE</p>
                         <img src="images/right.png">
                     </button>
                 </div>
-                
-                <div class="totalCost">
+                <div class="ordStatuses">
+                    <div id="ordered">
 
+                    </div>
+                    <h3>Preparing</h3>
+                    <h3>Finished</h3>
+                    <h3>Served</h3>
+                </div>
+                <div class="totalCost" id="totalCost">
+                    
                 </div>
             </div>
         </section>

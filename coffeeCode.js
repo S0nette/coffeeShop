@@ -138,49 +138,51 @@ document.querySelector('.placeOrd'). addEventListener('click', () => {
     updateLocalStorage()
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.getElementById('clear').addEventListener('click', () => {
-    order = []
-    document.getElementById('orderCount').innerHTML = 0
-    console.log(order)
-    updateLocalStorage()
+//всплывающее окно с состоянием заказа
+let orderMenu = document.querySelector('.orderMenu')
+const orderStatus = document.querySelector('.orderStatus')
+orderStatus.addEventListener('click', () => {
+    orderMenu.classList.add('open')
+    orderMenu.classList.remove('close')
+    findTotalCost()
+    showOrder()
 })
+let popup_cancel = document.querySelector('.popupCancel')
+popup_cancel.addEventListener('click', () => {
+    orderMenu.classList.add('close')
+    orderMenu.classList.remove('open')
+})
+const findTotalCost = () => {
+    let sub = 0
+    order.forEach(cof => {
+        sub += cof.cost*cof.count
+    })
+    let disc = (sub * 0.1).toFixed(2)
+    let total = sub - disc
+    document.getElementById('totalCost').innerHTML = `
+    <div class="findCost">
+        <p>Subtotal</p>
+        <p>₹${sub}</p>
+    </div>
+    <div class="findCost">
+        <p>Discount -10%</p>
+        <p>₹${disc}</p>
+    </div>
+    <div class="findCost">
+        <h3>Total</h3>
+        <h3>₹${total}</h3>     
+    </div>`
+}
+const showOrder = () => {
+    let totCost = document.getElementById('ordered')
+    totCost.innerHTML = '<h3>Ordered</h3>'
+    order.forEach(coffee => {
+        totCost.innerHTML += `
+        <div class="findCost">
+            <img src=${coffee.orderImage}>
+            <p>${coffee.name}  x${coffee.count}</p>
+        </div>`
+    })
+}
+
 

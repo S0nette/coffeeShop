@@ -11,6 +11,8 @@
 }
 body{
     background: rgba(246, 246, 246, 1);
+    display: flex;
+    justify-content: center;
 }
 .right, .right2{
     display: flex;
@@ -39,7 +41,7 @@ body{
 
 .main {
     display: flex;
-    margin: 30px 50px 30px 50px;
+    padding: 30px 50px 30px 50px;
 }
 .top, .top2{
     display: flex;
@@ -60,7 +62,7 @@ body{
     margin-right: 80px;
 }
 
-.types {
+.types, .menuPopup {
     position: sticky;
     top: 30px;
     left: 10px;
@@ -75,11 +77,16 @@ body{
     border:5px solid white;
     box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
 }
+.menuPopup {
+    height: 60vh;
+    margin: 50px auto auto 30px;
+}
+
 
 .types button {
     color: rgba(102, 80, 80, 1);
 }
-.noActive {
+.noActive, .noActiveBrg{
     padding: 25px;
     background-color: rgba(218, 198, 182, 0);
     border: none;
@@ -90,7 +97,7 @@ body{
     display: none;
 }
 
-.active, .chosen {
+.active, .chosen, .activeBrg {
     background-color: rgba(218, 198, 182, 1);
     border-radius: 20px;
     border: 1px solid black;
@@ -110,7 +117,10 @@ body{
     display: flex;
     width: 30px;
 }
-
+.activeBrg, .noActiveBrg{
+    width: 100%;
+    height: 50px;
+}
 
 
 h3{
@@ -122,7 +132,7 @@ p{
     font-size:18px;
 }
 h2 {
-    font-size:20px;
+    font-size:25px;
     width: 400;
 }
 .options h2 {
@@ -194,20 +204,21 @@ a {
     flex-direction: row;
     justify-content:flex-start;
     align-items: start;
+    align-content: stretch;
     flex-wrap: wrap;
     gap: 30px;
     width: 100%;
+    margin: 15px 0 15px 0;
 }
 
 .drink {
-    width: 270px;
+    width: 31%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 1);
     border-radius: 20px;
-    margin: 15px 0 15px 0;
     padding: 15px;
     border:4px solid white;
     gap: 10px;
@@ -283,12 +294,6 @@ a {
 }
 
 
-.main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 .coffeeImg {
     height: 75vh;
     width: auto;
@@ -296,7 +301,6 @@ a {
     top: 19%;
     left: 0;
 }
-
 .shadow {
     height: 79vh;
     width: auto;
@@ -308,7 +312,7 @@ a {
     display: none;
 }
 
-.open {
+.open, .openBrg {
     display: block;
     position: fixed;   
     top: 0;
@@ -321,10 +325,13 @@ a {
     justify-content: end;
     align-items: flex-end;
 }
-
+.openBrg {
+    align-items: flex-start;
+    justify-content: start;
+}
 .orderMenuPopup {
     width: 350px;
-    height: 100%;
+    height: 100vh;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -348,16 +355,32 @@ a {
 }
 
 .totalCost {
-    border-top: 2px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    height: 50px;
+    border-top: 2px solid rgba(0, 0, 0, 0.2);
     background-color: rgba(233, 233, 233, 1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
+.findCost {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.findCost p {   font-size: 15px;   }
+.findCost h3 {  font-size: 20px;    }
+.findCost img {  width: 50px;    }
+
 
 .options {
     display: flex;
     flex-direction: row;
     justify-content: start;
+    flex-wrap: wrap;
     align-items: center;
     gap: 15px;
 }
@@ -454,3 +477,99 @@ a {
     font-size: 20px;
 }
 
+.ordStatuses {
+    margin: 25px;
+    padding-left: 10px;
+    border-left: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    height: 50vh;
+    overflow: auto;
+}
+.burgerMenu {
+    height: 60px;
+}
+.burgerMenu:hover {
+    background-color: rgba(154, 87, 77, 0.432);
+    border-radius: 30px;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:1440px){
+   main {
+    width: 1224px;
+    background: rgba(246, 246, 246, 1);
+   }
+   body {
+    background: rgb(207, 207, 207);
+   }
+
+}
+@media screen and (max-width:1024px){
+    .left {
+        margin-right: 50px;
+    }
+    .drinks {
+        gap: 15px;
+    }
+    .orderStatus {
+        width: 270px;
+    }
+    .right2 {
+        margin: 0 10% 30px 100px;
+    }
+    .coffeeImg {
+        height: 60vh;
+    }
+    .shadow {
+        height: 63vh;
+    }
+ }
+ @media screen and (min-width:769px){
+    .burgerMenu {
+        display: none;
+    }
+ }
+@media screen and (max-width:768px){
+    .left, .coffeeImg {
+        display: none;
+    }
+    .drink {
+        width: 46%;
+    }
+    .right2 {
+        width:70%;
+        margin:0 15% 30px 15%;
+    }
+    h3 {
+        font-size: 12;
+    }
+    .orderStatus {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 426px){
+    .drink {
+        width: 100%;
+    }
+    .burgerMenu {
+        height: 50px;
+    }
+    .orderStatus h3 {
+        display: none;
+    }
+    .main {
+        margin: 20px;
+        padding: 0;
+    }
+}
