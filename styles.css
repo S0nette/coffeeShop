@@ -42,6 +42,7 @@ body{
 .main {
     display: flex;
     padding: 30px 50px 30px 50px;
+    width: 100%;
 }
 .top, .top2{
     display: flex;
@@ -509,10 +510,18 @@ a {
     width: 1224px;
     background: rgba(246, 246, 246, 1);
    }
-   body {
-    background: rgb(207, 207, 207);
+   .main {
+    width: 1224px;
    }
-
+   .right2 {
+    width: 55%;
+   }
+   .coffeeImg {
+    height: 60vh;
+}
+.shadow {
+    height: 63vh;
+}
 }
 @media screen and (max-width:1024px){
     .left {
@@ -528,10 +537,10 @@ a {
         margin: 0 10% 30px 100px;
     }
     .coffeeImg {
-        height: 60vh;
+        height: 54vh;
     }
     .shadow {
-        height: 63vh;
+        height: 57vh;
     }
  }
  @media screen and (min-width:769px){
